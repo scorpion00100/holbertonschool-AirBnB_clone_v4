@@ -38,8 +38,6 @@ $(function () {
     url: 'http://localhost:5001/api/v1/places_search',
     contentType: 'application/json',
     success: function (data) {
-      console.log('I AM DATA');
-      console.log(data);
       for (const place of data) {
         const template = `<article>
         <div class="title_box">
@@ -66,10 +64,6 @@ $(function () {
       ${place.number_bathrooms} Bathroom
           </div>
         </div>
-      <!-- USER -->
-      <div class="user">
-      <p><b>Owner: </b>${users[place.user_id]}</p>
-      </div>
         <div class="description">
           ${place.description}
         </div>
