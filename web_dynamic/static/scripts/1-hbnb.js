@@ -1,5 +1,4 @@
-
-$(function () {
+$(document).ready(function () {
   const amenitiesChecked = {};
   $(document).on('change', "input[type='checkbox']", function () {
     if (this.checked) {
