@@ -71,16 +71,16 @@ $(function () {
     }
   });
 
-  $("button").click(function () {
+  $('button').click(function () {
     $.ajax({
-        type: 'POST',
-        data: JSON.stringify({amenities: Object.keys(amenitiesChecked)}),
-        url: 'http://localhost:5001/api/v1/places_search',
-        contentType: 'application/json',
-        success: function (data) {
-          $('article').remove();
-          for (const place of Object.values(data)) {
-            const template = `<article>
+      type: 'POST',
+      data: JSON.stringify({ amenities: Object.keys(amenitiesChecked) }),
+      url: 'http://localhost:5001/api/v1/places_search',
+      contentType: 'application/json',
+      success: function (data) {
+        $('article').remove();
+        for (const place of Object.values(data)) {
+          const template = `<article>
             <div class="title_box">
               <h2>${place.name}</h2>
               <div class="price_by_night">
@@ -109,10 +109,9 @@ $(function () {
           ${place.description}
         </div>
       </article> <!-- End 1 PLACE Article -->`;
-        $('section.places').append(template);
-          }
+          $('section.places').append(template);
         }
+      }
+    });
   });
-});
-
 });
